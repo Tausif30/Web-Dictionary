@@ -1,0 +1,49 @@
+{
+  "manifest_version": 2,
+  "name": "Web Dictionary",
+  "description": "Get definitions of selected words. Also has a search option. Use the shortcut Crtl+Alt+A to toggle the popup option",
+  "version": "1.1",
+  "author": "Tausif Ibne Iqbal",
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "storage"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/logo_placeholder.png",
+      "48": "images/logo_placeholder.png",
+      "128": "images/logo_placeholder.png"
+    }
+  },
+  "commands": {
+    "toggle-extension": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+A"
+      },
+      "description": "Toggle the dictionary extension"
+    }
+  },
+  "icons": {
+    "16": "images/logo_placeholder.png",
+    "48": "images/logo_placeholder.png",
+    "128": "images/logo_placeholder.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "dictionary_extension@example.com",
+      "strict_min_version": "57.0"
+    }
+  }
+}
